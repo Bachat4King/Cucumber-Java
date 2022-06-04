@@ -6,7 +6,7 @@ import io.cucumber.java.en.When;
 import utils.DriverFactory;
 
 
-public class LoginSteps{
+public class LoginParaBankSteps {
 
     ParaBank paraBank = new ParaBank(DriverFactory.getDriver());
 

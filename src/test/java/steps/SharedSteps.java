@@ -9,7 +9,7 @@ public class SharedSteps {
 
     private final WebDriver driver = DriverFactory.getDriver();
 
-    @Given("go to {string} page")
+    @Given("go to {string}")
     public void gotoWebsite(String website) {
         driver.get(website);
     }
