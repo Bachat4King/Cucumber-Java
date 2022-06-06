@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Base {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
     public Base(WebDriver driver) {
         this.driver = driver;
