@@ -9,15 +9,19 @@ import utils.DriverFactory;
 
 public class Hooks {
 
-
-    @Before()
-    public void setup(Scenario scenario) {
-        DriverFactory.initDriver();
-        System.out.println(Thread.currentThread().getId());
-        System.out.println(scenario.getName());
+    @Before("@api")
+    public void apiSetUp(Scenario scenario){
+        System.out.println(scenario.getLine());
     }
 
-    @After
+    @Before("not @api")
+    public void setup(Scenario scenario) {
+        DriverFactory.initDriver();
+        System.out.println(scenario.getName());
+        System.out.println(scenario.getId());
+    }
+
+    @After("not @api")
     public void tearDown() {
         DriverFactory.killDriver();
     }
