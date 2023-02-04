@@ -9,23 +9,34 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class Base {
+public abstract class Base {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
     public Base(WebDriver driver) {
         this.driver = driver;
     }
 
-    public WebElement findElement(By locator, Duration timeout) {
-        return new WebDriverWait(this.driver, timeout).until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public WebElement findElement(By locator, int timeout) {
+        return new WebDriverWait(this.driver, Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
 
-    public List<WebElement> findElements(By locator, Duration timeout) {
-        return new WebDriverWait(this.driver, timeout).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
+    public List<WebElement> findElements(By locator, int timeout) {
+        return new WebDriverWait(this.driver, Duration.ofSeconds(timeout)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(locator));
     }
 
+    public void doClick(By locator, int timeout) {
+        new WebDriverWait(this.driver, Duration.ofSeconds(timeout)).until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+
+    public void doSendKeys(By locator, int timeout, String keys) {
+        findElement(locator, timeout).sendKeys(keys);
+    }
+
+    public String doGetText(By locator, int timeout) {
+        return findElement(locator, timeout).getText();
+    }
 
 }
 

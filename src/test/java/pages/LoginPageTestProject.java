@@ -3,8 +3,6 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import java.time.Duration;
-
 
 public class LoginPageTestProject extends Base {
 
@@ -19,15 +17,15 @@ public class LoginPageTestProject extends Base {
     }
 
     public void enterUsername(String username) {
-        findElement(nameInput, Duration.ofSeconds(10)).sendKeys(username);
+        findElement(nameInput, 10).sendKeys(username);
     }
 
     public void enterPassword(String password) {
-        findElement(passwordInput, Duration.ofSeconds(10)).sendKeys(password);
+        findElement(passwordInput, 10).sendKeys(password);
     }
 
     public void clickLogin() {
-        findElement(loginButton, Duration.ofSeconds(10)).click();
+        findElement(loginButton, 10).click();
     }
 
     public void loginValidUser(String username, String password) {

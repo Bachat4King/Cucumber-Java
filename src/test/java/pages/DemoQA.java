@@ -4,7 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import java.time.Duration;
 import java.util.List;
 
 public class DemoQA extends Base {
@@ -14,7 +13,7 @@ public class DemoQA extends Base {
     }
 
     public void printInputElements() {
-        List<WebElement> elements = findElements(By.xpath("//input"), Duration.ofSeconds(10));
+        List<WebElement> elements = findElements(By.xpath("//input"), 10);
         for (WebElement element : elements) {
             System.out.println(element.getAttribute("placeholder"));
         }

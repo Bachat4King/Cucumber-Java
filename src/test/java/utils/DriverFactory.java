@@ -12,9 +12,12 @@ public class DriverFactory {
     public static void initDriver() {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
+        options.addArguments("--start-maximized");
+        //options.addArguments("--headless");
+        //options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
         driver = new ChromeDriver(options);
+
     }
 
     public static WebDriver getDriver() {
