@@ -9,10 +9,11 @@ public class DriverFactory {
 
     private static WebDriver driver;
 
-    public static void initDriver() {
+public static void initDriver() {
+
+    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 
     ChromeOptions options = new ChromeOptions();
-
     options.addArguments("--headless=new");
     options.addArguments("--no-sandbox");
     options.addArguments("--disable-dev-shm-usage");
