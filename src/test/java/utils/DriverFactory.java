@@ -10,16 +10,16 @@ public class DriverFactory {
     private static WebDriver driver;
 
     public static void initDriver() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--start-maximized");
-        //options.addArguments("--headless");
-        //options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
 
-    }
+    ChromeOptions options = new ChromeOptions();
 
+    options.addArguments("--headless=new");
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+    options.addArguments("--window-size=1920,1080");
+
+    driver = new ChromeDriver(options);
+}
     public static WebDriver getDriver() {
         return driver;
     }
