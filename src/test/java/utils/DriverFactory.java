@@ -11,7 +11,8 @@ public class DriverFactory {
 
 public static void initDriver() {
 
-    System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    //System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+    WebDriverManager.chromedriver().setup();
 
     ChromeOptions options = new ChromeOptions();
     options.addArguments("--headless=new");
